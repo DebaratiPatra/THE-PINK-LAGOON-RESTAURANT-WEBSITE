@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
+    <title>The Pink Lagoon</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/29ebc6cb08.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
@@ -14,9 +14,16 @@
     <nav class="nav_cont">
         <div class="navigation_container">
             <div class="logo_container">
-                <img src="images/logo.png" alt="logo" height="65px">
+                <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
             </div>
-            <div class="bar_container">
+
+            <div class="login_container">
+            <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
+                Login/Join
+            </a>
+        </div>
+        
+            <div class="bar_container" onclick="toggleHamburger()">
                 <i class="fa-sharp fa-solid fa-bars"></i>
             </div>
         </div>
@@ -189,6 +196,29 @@
             </div>
         </footer>
     </div>
+
+    <!--HAMBURGER ICON-->
+
+<div class="hamburger">
+    <div class="hamburger-content">
+        <ul>
+            <li id="bookingCount"><a href="orders.html"  style="position: relative;">Your Booking</a>
+                <span id="bookingBadge" style="display:none;"></span>
+            </li>
+            <li><a href="Overview.html">Overview</a></li>
+            <li><a href="Offer.html">Offer</a></li>
+            <li><a href="Dining.html">Dining</a></li>
+            <li><a href="Wellness.html">Wellness</a></li>
+            <li><a href="Enjoyment.html">Enjoyment</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="LocalAtt.html">Local Attraction</a></li>
+        </ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<!-- <script src="button.js"></script> -->
+ <script src="overview.js"></script>
 </body>
 
 </html>

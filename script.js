@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         slideIndex = (n + slides.length) % slides.length;
-        slides[slideIndex].classList.add("active");
+        slides[slideIndex].classList.add('active');
         if (dots.length > 0) {
             dots[slideIndex].classList.add("active");
         }

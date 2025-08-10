@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Bookings</title>
+  <link rel="stylesheet" href="orders.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+  <script src="https://kit.fontawesome.com/29ebc6cb08.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav_cont">
+    <div class="navigation_container">
+        <div class="logo_container">
+            <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
+        </div>
+        <div class="bar_container" onclick="toggleHamburger()">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </div>
+    </div>
+  </nav>
+
+  <div class="bookingContainer">
+    <h1 id="headingOrder" style="text-align: center; font-family: 'Courier New', Courier, monospace;">Your Bookings</h1>
+    <div id="bookingList" style="padding: 2rem;"></div>
+  </div>
+
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Experience</h2>
+    <form>
+    <div class="nameEmail">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" required><br><br>
+   
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" required><br><br>
+    </div>
+
+    <div class="dateTime">
+      <label for="date">Date:</label><br>
+      <input type="date" id="date" required><br><br>
+
+      <label for="time">Time:</label><br>
+      <input type="time" id="time" required><br><br>
+    </div>
+    <div class="button">
+      <button type="button" id="buttonModal">Booking Confirm</button>
+    </div>
+    </form>
+  </div>
+</div>
+  
+  <script src="button.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wellness</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
     <script src="https://kit.fontawesome.com/29ebc6cb08.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </head>
@@ -14,9 +15,16 @@
     <nav class="nav_cont">
         <div class="navigation_container">
             <div class="logo_container">
-                <img src="images/logo.png" alt="logo" height="65px">
+                <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
             </div>
-            <div class="bar_container">
+
+            <div class="login_container">
+            <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
+                Login/Join
+            </a>
+        </div>
+        
+            <div class="bar_container" onclick="toggleHamburger()">
                 <i class="fa-sharp fa-solid fa-bars"></i>
             </div>
         </div>
@@ -76,7 +84,7 @@
                     <div class="grid1Img">
                         <img src="images/facial.png" alt="facial" class="wellnessImg">
 
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Signature Pink Rose Therapy">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Signature Pink Rose Therapy</h2><br>
@@ -86,7 +94,7 @@
                 <div class="wellnessGrid2">
                     <div class="grid1Img">
                         <img src="images/crystal.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Crystal Healing & Chakra Balancing">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Crystal Healing & Chakra Balancing</h2><br>
@@ -97,7 +105,7 @@
                 <div class="wellnessGrid3">
                     <div class="grid1Img">
                         <img src="images/aroma.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Aromatherapy Relaxation Massage">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Aromatherapy Relaxation Massage</h2><br>
@@ -118,7 +126,7 @@
                 <div class="wellnessGrid1">
                     <div class="grid1Img">
                         <img src="images/relaxationFacial.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Pink Glow Facial Treatment">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Pink Glow Facial Treatment</h2><br>
@@ -128,7 +136,7 @@
                 <div class="wellnessGrid2">
                     <div class="grid1Img">
                         <img src="images/handFoot.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Luxury Hand & Foot Ritual">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Luxury Hand & Foot Ritual</h2><br>
@@ -139,7 +147,7 @@
                 <div class="wellnessGrid3">
                     <div class="grid1Img">
                         <img src="images/dream.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Herbal Hair & Scalp Therapy">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Herbal Hair & Scalp Therapy</h2><br>
@@ -161,7 +169,7 @@
                 <div class="wellnessGrid1">
                     <div class="grid1Img">
                         <img src="images/meditation.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Sound Bath & Meditation">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Sound Bath & Meditation</h2><br>
@@ -171,7 +179,7 @@
                 <div class="wellnessGrid2">
                     <div class="grid1Img">
                         <img src="images/lavendar.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Lavender Dream Therapy">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Lavender Dream Therapy</h2><br>
@@ -182,7 +190,7 @@
                 <div class="wellnessGrid3">
                     <div class="grid1Img">
                         <img src="images/sound.png" alt="facial" class="wellnessImg">
-                        <button>Experience It</button>
+                        <button class="button_act" data-place="Sound & Vibration Healing">Experience It</button>
                     </div>
                     <div class="grid1Txt">
                         <h2>Sound & Vibration Healing</h2><br>
@@ -233,6 +241,56 @@
         </div>
     </footer>
 </div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Experience</h2>
+    <form>
+    <div class="nameEmail">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" required><br><br>
+   
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" required><br><br>
+    </div>
+
+    <div class="dateTime">
+      <label for="date">Date:</label><br>
+      <input type="date" id="date" required><br><br>
+
+      <label for="time">Time:</label><br>
+      <input type="time" id="time" required><br><br>
+    </div>
+    <div class="button">
+      <button type="submit" id="buttonModal">Booking Confirm</button>
+    </div>
+    </form>
+  </div>
+</div>
+
+<!--HAMBURGER ICON-->
+
+<div class="hamburger">
+    <div class="hamburger-content">
+        <ul>
+            <li id="bookingCount"><a href="orders.html"  style="position: relative;">Your Booking</a>
+                <span id="bookingBadge" style="display:none;"></span>
+            </li>
+            <li><a href="Overview.html">Overview</a></li>
+            <li><a href="Offer.html">Offer</a></li>
+            <li><a href="Dining.html">Dining</a></li>
+            <li><a href="Wellness.html">Wellness</a></li>
+            <li><a href="Enjoyment.html">Enjoyment</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="LocalAtt.html">Local Attraction</a></li>
+        </ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="button.js"></script>
 </body>
 
 </html>

@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dining</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
     <script src="https://kit.fontawesome.com/29ebc6cb08.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 </head>
 <body>
     <nav class="nav_cont">
         <div class="navigation_container">
             <div class="logo_container">
-                <img src="images/logo.png" alt="logo" height="65px">
+                <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
             </div>
-            <div class="bar_container">
+
+            <div class="login_container">
+            <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
+                Login/Join
+            </a>
+        </div>
+        
+            <div class="bar_container" onclick="toggleHamburger()">
                 <i class="fa-sharp fa-solid fa-bars"></i>
             </div>
         </div>
@@ -57,7 +64,7 @@
             </div>
             <div class="genTxt">
                 <P>The General Dining Hall at The Pink Lagoon will provide a luxurious yet comfortable experience for all guests. Designed with a soft pink theme, the minimalist interior will feature elegant tables for two, surrounded by plush chairs to ensure comfort. The room will be lit with subtle, indirect ceiling lights, creating a warm and inviting atmosphere. Floral arrangements on each table will add to the ambiance without overpowering the space.<br><br>The dining experience will offer a diverse menu, from global gourmet cuisine to comforting local delicacies. Specialties like pink salmon and rose-infused desserts will give guests a unique taste of The Pink Lagoon, while healthy options such as fresh salads and smoothies will cater to wellness-conscious diners. A variety of vegetarian and vegan options will ensure inclusivity, and attentive service will provide a seamless, enjoyable meal.<br><br>Soft background music will enhance the relaxed vibe of the dining area, perfect for casual meals, business lunches, or intimate gatherings. The space will also host themed events and special dinner nights, such as wine pairing or seasonal celebrations. Additionally, the General Dining Hall will offer customized meal options to accommodate dietary preferences.<br><br>The overall design and atmosphere of the General Dining Hall will provide an accessible yet sophisticated environment where guests can indulge in a memorable dining experience, whether for a quick bite or a leisurely meal.</P><br><br>
-                <button>Book Now</button>
+                <button class="button_act" data-place="The Dine - General Dining Hall 2">Book Now</button>
             </div>
 
             <div class="premiumDining">
@@ -65,7 +72,7 @@
             </div>
             <div class="genTxt">
                 <p>The Premium Dining Room at The Pink Lagoon offers an exclusive, luxurious experience for VIP and premium guests. This vast, elegantly designed space is the epitome of sophistication, with soft light pink tones and lavish decor creating an atmosphere of serenity and opulence. The room features spacious, beautifully set tables with high-end finishes and plush seating, ensuring that every meal is an indulgence.<br><br>The menu will offer a curated selection of gourmet dishes, including specialty items crafted with the finest ingredients. Guests can enjoy exquisite courses such as truffle-infused pasta, luxurious seafood platters, and decadent desserts like gold-dusted chocolate tarts. Each dish will be paired with premium wines and spirits, elevating the dining experience.<br><br>Personalized service will be at the heart of the Premium Dining Room. Attentive staff will ensure every guest feels like royalty, with bespoke recommendations and tailored experiences. For a truly exclusive experience, private chefs will be available for custom meal requests, offering a dining journey like no other.<br><br>The Premium Dining Room will also feature a private section for intimate gatherings and celebrations, allowing guests to enjoy their meals in privacy and style. Whether for a special occasion or a luxury dining experience, this space is designed to provide an unmatched level of comfort and elegance. Every detail will be tailored to offer a premium, unforgettable experience at The Pink Lagoon.</p><br><br>
-                <button>Book Now</button>
+                <button class="button_act" data-place="Premium Dining">Book Now</button>
             </div>
 
             <div class="privateDining">
@@ -73,7 +80,7 @@
             </div>
             <div class="genTxt">
                 <p>The Private Dining at The Pink Lagoon offers an exclusive and luxurious experience for guests who seek privacy, comfort, and elegance. Tucked away from the main dining spaces, each private dining pod is thoughtfully designed with soft pink interiors, plush velvet seating, and ambient lighting to create a serene, romantic atmosphere.<br><br>Each pod includes a personal movie screen, allowing guests to enjoy their favorite films or shows while dining. Whether it’s a romantic classic, a fun comedy, or a personalized video for a celebration, this unique feature turns every meal into an immersive experience. Guests can dine, relax, and enjoy entertainment—all in their own private space.<br><br>The menu in the Private Dining area will be specially curated, featuring gourmet dishes like caviar, truffle risotto, premium cuts, and decadent desserts. Private chefs will be available upon request to create personalized dishes, ensuring every meal is perfectly tailored to the guest’s taste. A selection of fine wines, handcrafted cocktails, and premium non-alcoholic beverages will also be available.<br><br>Service will be discreet and dedicated, with staff ensuring a seamless, comfortable experience without intruding on privacy. The pods are ideal for romantic dinners, anniversary celebrations, private meetings, or simply indulging in luxury.<br><br>Whether you're celebrating something special or just treating yourself, The Private Dining at The Pink Lagoon, complete with a personalized movie experience, promises unforgettable moments wrapped in elegance and charm.</p><br><br>
-                <button>Book Now</button>
+                <button class="button_act" data-place="Private Dining Pod - Sector 1">Book Now</button>
             </div>
 
             <div class="roofTopDining">
@@ -81,7 +88,7 @@
             </div>
             <div class="genTxt">
                 <p>Rooftop Romance at The Pink Lagoon offers a breathtaking dining experience under the open sky, where luxury meets nature in the most enchanting way. Located at the top of the pink-themed architectural masterpiece, this space provides panoramic views of the surroundings, especially during golden hour and starlit evenings.<br><br>The entire rooftop is designed with elegance and comfort in mind—soft pink seating, twinkling fairy lights, floral arches, and candle-lit tables create a magical setting. Guests can enjoy gentle evening breezes, sunsets melting into pink skies, and a serene ambiance perfect for romantic dinners, celebrations, or peaceful solo moments.<br><br>Our Rooftop Dining Menu will feature a fine selection of international cuisines, grilled delicacies, fresh seafood, handcrafted cocktails, and indulgent desserts—all served with impeccable presentation. Special rooftop-exclusive dishes will be offered, inspired by seasonal ingredients and chef's recommendations.<br><br>Live acoustic music or soft instrumental tunes will fill the air, adding to the dreamy vibe. Guests may also request a private corner setup for proposals, anniversaries, or birthday surprises, complete with floral decorations and custom messages.<br><br>Whether it's sipping wine under the stars or enjoying a sunset meal with loved ones, Rooftop Romance at The Pink Lagoon promises a magical and unforgettable dining journey above the city.</p><br><br>
-                <button>Book Now</button>
+                <button class="button_act" data-place="Roof-Top Dining">Book Now</button>
             </div>
         </div>
     </div>
@@ -127,5 +134,55 @@
         </div>
     </footer>
 </div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Experience</h2>
+    <form>
+    <div class="nameEmail">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" required><br><br>
+   
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" required><br><br>
+    </div>
+
+    <div class="dateTime">
+      <label for="date">Date:</label><br>
+      <input type="date" id="date" required><br><br>
+
+      <label for="time">Time:</label><br>
+      <input type="time" id="time" required><br><br>
+    </div>
+    <div class="button">
+      <button type="submit" id="buttonModal">Booking Confirm</button>
+    </div>
+    </form>
+  </div>
+</div>
+
+<!--HAMBURGER ICON-->
+
+<div class="hamburger">
+    <div class="hamburger-content">
+        <ul>
+            <li id="bookingCount"><a href="orders.html"  style="position: relative;">Your Booking</a>
+                <span id="bookingBadge" style="display:none;"></span>
+            </li>
+            <li><a href="Overview.html">Overview</a></li>
+            <li><a href="Offer.html">Offer</a></li>
+            <li><a href="Dining.html">Dining</a></li>
+            <li><a href="Wellness.html">Wellness</a></li>
+            <li><a href="Enjoyment.html">Enjoyment</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="LocalAtt.html">Local Attraction</a></li>
+        </ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="button.js"></script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+.bookingContainer{
+  background-color: white;
+  color:rgb(75, 53, 25);
+  margin-top: 8rem;
+  width: 70%;
+  position: relative;
+  left: 15%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+#Brows{
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(241, 89, 114);
+  font-weight: bold;
+}
+
+.bookingDivEditBtn ,
+.bookingDivDeleteBtn{
+  font-size: 15px;
+  padding: 0.5rem;
+  width: 5rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bookingDivEditBtn{
+  background-color: rgb(39, 39, 186);
+}
+
+.bookingDivDeleteBtn{
+  background-color: rgb(235, 63, 63);
+}
