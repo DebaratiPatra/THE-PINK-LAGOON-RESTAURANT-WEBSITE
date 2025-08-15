@@ -10,23 +10,22 @@
 </head>
 <body>
     <body>
-        <nav class="nav_cont">
-            <div class="navigation_container">
-                <div class="logo_container">
-                    <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
-                </div>
+    <nav class="nav_cont">
+        <div class="navigation_container">
+            <div class="logo_container">
+                <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
+            </div>
 
-                <div class="login_container">
-            <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
-                Login/Join
-            </a>
-        </div>
-        
-                <div class="bar_container" onclick="toggleHamburger()">
+            <!-- UPDATED USER CONTAINER -->
+            <div class="login_container" id="userContainer">
+                <!-- JS will populate login or username + logout -->
+            </div>
+            
+            <div class="bar_container" onclick="toggleHamburger()">
                 <i class="fa-sharp fa-solid fa-bars"></i>
             </div>
-            </div>
-        </nav>
+        </div>
+    </nav>
     
         <section class="hero">
             <div class="img_container"></div>
@@ -105,8 +104,8 @@
     
                 <div class="footer_contact">
                     <h1>Contact Us</h1>
-                    <p><i class="fa-solid fa-location-dot"></i> Lorem ipsum dolor sit amet, consectetur</p>
-                    <p><i class="fa-solid fa-phone"></i>+91 7501797645</p>
+                    <p><i class="fa-solid fa-location-dot"></i>Plot No. CE/23, Street No. 112, Action Area 1C, New Town, Kolkata-700156</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98361 24578</p>
                     <p><i class="fa-solid fa-envelope"></i> contact@thepinklagoon.com</p>
                     <p><i class="fa-solid fa-clock"></i> Mon-Sun: 11 AM - 11 PM</p>
                 </div>
@@ -158,5 +157,47 @@
 
     <script src="script.js"></script>
     <script src="overview.js"></script>
+     <script>
+// Overview.js
+const userContainer = document.getElementById("userContainer");
+
+// Get username from localStorage
+const username = localStorage.getItem("loggedInUsername");
+
+if (username) {
+  // If user is logged in, show username and logout button
+  userContainer.innerHTML = `
+  <span style="display:flex; align-items:center; gap:8px;">
+      <img src="images/profile-user.png" alt="profile" style="width:28px; height:28px; border-radius:50%;">
+    <span style="color:#000000; font-weight:300; margin-right:5rem; font-size:20px">${username}</span>
+    <button id="logoutBtn" style="
+        padding:5px 12px; 
+        background:#ed68aa; 
+        color:white; 
+        border:none; 
+        border-radius:6px; 
+        cursor:pointer;
+        font-weight:500;
+      ">Logout</button>
+     </span> 
+  `;
+
+  // Logout functionality
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    // Remove all login-related data
+    localStorage.removeItem("loggedInUsername");
+    localStorage.removeItem("loggedInUserEmail");
+    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("authToken");
+    // Reload page to show login/join
+    location.reload();
+  });
+
+} else {
+  // If not logged in, show default login/join link
+  userContainer.innerHTML = `<a href="login.html" style="text-decoration:none; font-weight:400; color:#ed68aa;">Login/Join</a>`;
+}
+
+</script>
 </body>
 </html>

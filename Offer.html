@@ -11,41 +11,34 @@
 </head>
 
 <body>
-    <nav class="nav_cont">
-        <div class="navigation_container">
-            <div class="logo_container">
-                <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
-            </div>
-
-            <span id="usernameDisplay" style="display:none; font-weight:bold; margin-right: 15px;"></span>
-
-            <div class="login_container">
-            <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
-                Login /
-            </a>
-
-            <a href="register.html" id="registerLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
-                Join
-            </a>
+<nav class="nav_cont">
+    <div class="navigation_container">
+        <div class="logo_container">
+            <a href="Overview.html"><img src="images/logo.png" alt="logo" height="65px"></a>
         </div>
 
-            <div class="bar_container" onclick="toggleHamburger()">
-                <i class="fa-sharp fa-solid fa-bars"></i>
+        <div class="login_container">
+            <div id="userContainer">
+                <!-- JS will insert Login/Username + Logout dynamically -->
             </div>
         </div>
-    </nav>
 
-    <section class="hero">
-        <div class="img_container"></div>
-        <div class="text_container">
-            <span class="text">
-                <h1>The Pink-Lagoon, a Luxury Restaurant,Kolkata</h1>
-                <p><i class="fa-solid fa-location-dot"></i> Plot No. CE/23, Street No. 112,
-                    Action Area 1C, New Town,Kolkata-700156</p>
-                <p><i class="fa-solid fa-phone"></i> +91 98361 24578</p>
-            </span>
+        <div class="bar_container" onclick="toggleHamburger()">
+            <i class="fa-sharp fa-solid fa-bars"></i>
         </div>
-    </section>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="img_container"></div>
+    <div class="text_container">
+        <span class="text">
+            <h1>The Pink-Lagoon, a Luxury Restaurant, Kolkata</h1>
+            <p><i class="fa-solid fa-location-dot"></i> Plot No. CE/23, Street No. 112, Action Area 1C, New Town,Kolkata-700156</p>
+            <p><i class="fa-solid fa-phone"></i> +91 98361 24578</p>
+        </span>
+    </div>
+</section>
 
 <div class="main_page">
     <section class="nav">
@@ -77,10 +70,10 @@
                             <img src="images/dessert.png" alt="dessert">
                         </div>
                         <div class="card_text">
-                            Guests in our Premium Dining who indulge in a meal over ₹3,000 will be treated to a surprise , complimentary handcrafted dessert platter—because every royal feast deserves a sweet finale.
+                            Guests in our Premium Dining who indulge in a meal over ₹3,000 will be treated to a surprise, complimentary handcrafted dessert platter.
                         </div>
                         <div class="button">
-                            <button class="button_act" data-place="premium Dining Magical Dessert Zone">Book for Premium ></button>
+                            <button class="button_act" data-place="Premium Dining Magical Dessert Zone">Book for Premium ></button>
                         </div>
                     </div>
                     <div class="card1b">
@@ -88,7 +81,7 @@
                             <img src="images/celebrationRoom2.jpeg" alt="celebration">
                         </div>
                         <div class="card_text">
-                            Elevate your special occasion at The Pink Lagoon with an exclusive 20% discount on bookings for our Celebration Room.Let us create an unforgettable experience with a complimentary floral arrangement and a personalized cake.
+                            Elevate your special occasion at The Pink Lagoon with an exclusive 20% discount on bookings for our Celebration Room.
                         </div>
                         <div class="button">
                             <button class="button_act" data-place="Celebration Room">Book Now ></button>
@@ -102,7 +95,7 @@
                             <img src="images/privateDining1.jpeg" alt="dining">
                         </div>
                         <div class="card_text">
-                            Every Sunday at The Pink Lagoon, enjoy an extended escape in our Private Dining Pods—get an extra 30 minutes of luxury at no additional cost. Savor the moment, because weekends deserve something special.
+                            Every Sunday at The Pink Lagoon, enjoy an extended escape in our Private Dining Pods.
                         </div>
                         <div class="button">
                             <button class="button_act" data-place="Private Dining">Book Now ></button>
@@ -113,23 +106,24 @@
                             <img src="images/relaxationHair.png" alt="relaxation">
                         </div>
                         <div class="card_text">
-                            Guests booking General Dining between 2-4 PM on Saturdays enjoy 30 minutes of complimentary relaxation at our Wellness Spa Lounge. Unwind in style after your meal—because your weekend deserves a soothing touch.
+                            Guests booking General Dining between 2-4 PM on Saturdays enjoy 30 minutes of complimentary relaxation.
                         </div>
                         <div class="button">
                             <button class="button_act" data-place="General Dining">Book Now ></button>
                         </div>
                     </div>
                 </div>
+
                 <div class="card3">
                     <div class="card3a">
                         <div class="card_img">
                             <img src="images/music1.jpeg" alt="music">
                         </div>
                         <div class="card_text">
-                            Enjoy free entry for all guests every Friday, along with mesmerizing live music performances to light up your evening. Let the weekend begin with rhythm, elegance, unforgettable vibes & immerse yourself in an atmosphere of luxury and celebration that sets the tone for the perfect weekend.
+                            Enjoy free entry for all guests every Friday, along with mesmerizing live music performances.
                         </div>
                         <div class="button">
-                            <button class="button_act" data-place="Music Londge">Book Now ></button>
+                            <button class="button_act" data-place="Music Lounge">Book Now ></button>
                         </div>
                     </div>
                     <div class="card3b">
@@ -137,7 +131,7 @@
                             <img src="images/VIP.png" alt="VIP">
                         </div>
                         <div class="card_text">
-                            Unlock exclusive privileges with The Pink Lagoon VIP Membership Card—enjoy priority reservations, surprise treats, and members-only offers. Spend ₹10,000 in a month or request an invitation at our front desk to receive your card. Simply present it during your visit to elevate every dining experience.
+                            Unlock exclusive privileges with The Pink Lagoon VIP Membership Card.
                         </div>
                         <div class="button">
                             <button class="button_act" data-place="VIP Membership">Book Now ></button>
@@ -154,15 +148,13 @@
                 <img src="images/logo.png" alt="logo" class="footer_logo">
                 <p>A Luxurious Escape In Every Bite</p>
             </div>
-
             <div class="footer_contact">
                 <h1>Contact Us</h1>
-                <p><i class="fa-solid fa-location-dot"></i> Lorem ipsum dolor sit amet, consectetur</p>
-                <p><i class="fa-solid fa-phone"></i>+91 7501797645</p>
+               <p><i class="fa-solid fa-location-dot"></i>Plot No. CE/23, Street No. 112, Action Area 1C, New Town, Kolkata-700156</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98361 24578</p>
                 <p><i class="fa-solid fa-envelope"></i> contact@thepinklagoon.com</p>
                 <p><i class="fa-solid fa-clock"></i> Mon-Sun: 11 AM - 11 PM</p>
             </div>
-
             <div class="footer_links">
                 <h1>Quick Links</h1>
                 <ul>
@@ -173,7 +165,6 @@
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
-
             <div class="footer_social">
                 <h1>Follow Us</h1>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -195,34 +186,33 @@
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <h2>Book Your Experience</h2>
     <form>
-    <div class="nameEmail">
-      <label for="name">Name:</label><br>
-      <input type="text" id="name" required><br><br>
-   
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" required><br><br>
-    </div>
+        <div class="nameEmail">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" required><br><br>
+       
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" required><br><br>
+        </div>
 
-    <div class="dateTime">
-      <label for="date">Date:</label><br>
-      <input type="date" id="date" required><br><br>
+        <div class="dateTime">
+          <label for="date">Date:</label><br>
+          <input type="date" id="date" required><br><br>
 
-      <label for="time">Time:</label><br>
-      <input type="time" id="time" required><br><br>
-    </div>
-    <div class="button">
-      <button type="submit" id="buttonModal">Booking Confirm</button>
-    </div>
+          <label for="time">Time:</label><br>
+          <input type="time" id="time" required><br><br>
+        </div>
+        <div class="button">
+          <button type="submit" id="buttonModal">Booking Confirm</button>
+        </div>
     </form>
   </div>
 </div>
 
 <!--HAMBURGER ICON-->
-
 <div class="hamburger">
     <div class="hamburger-content">
         <ul>
-            <li id="bookingCount"><a href="orders.html"  style="position: relative;">Your Booking</a>
+            <li id="bookingCount"><a href="orders.html" style="position: relative;">Your Booking</a>
                 <span id="bookingBadge" style="display:none;"></span>
             </li>
             <li><a href="Overview.html">Overview</a></li>
@@ -232,40 +222,19 @@
             <li><a href="Enjoyment.html">Enjoyment</a></li>
             <li><a href="Gallery.html">Gallery</a></li>
             <li><a href="LocalAtt.html">Local Attraction</a></li>
-            <li><a href="#" id="logoutLink">Logout</a></li>
+            <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
         </ul>
     </div>
 </div>
+
 <script src="script.js"></script>
 <script src="button.js"></script>
-
 <script>
-   document.getElementById("logoutLink").addEventListener("click", async (e) => {
-  e.preventDefault();
-
-  // Show confirmation dialog
-  const confirmed = confirm("Are you sure you want to log out?");
-  if (!confirmed) return; // If user cancels, do nothing
-
-  try {
-    const res = await fetch("http://localhost:5000/api/auth/logout", {
-      method: "POST",
-      credentials: "include",
+    // Initialize user display and Book button behavior
+    document.addEventListener("DOMContentLoaded", () => {
+        updateUserStatusUI();
+        initBookButtons();
     });
-
-    if (res.ok) {
-      alert("Logged out successfully");
-      window.location.href = "login.html";  // Redirect after logout
-    } else {
-      const errorData = await res.json();
-      alert("Logout failed: " + (errorData.message || "Unknown error"));
-    }
-  } catch (error) {
-    console.error("Logout error:", error);
-    alert("Logout error, try again.");
-  }
-});
 </script>
 </body>
-
 </html>

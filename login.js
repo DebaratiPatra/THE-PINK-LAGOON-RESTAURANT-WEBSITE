@@ -26,6 +26,9 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             localStorage.setItem("authToken", data.token);
             localStorage.setItem("loggedInUserEmail", email);
 
+            const username = data.username || email.split("@")[0];
+            localStorage.setItem("loggedInUsername", username);
+
             // Show success
             document.getElementById("loginSuccess").style.display = "block";
             document.getElementById("loginError").style.display = "none";

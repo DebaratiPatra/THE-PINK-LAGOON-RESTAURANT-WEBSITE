@@ -111,14 +111,6 @@ body{
     width: 100%;
 }
 
-@media only screen and (max-width : 1523px){
-    .text_container{
-        left : 50%;
-        top : 60%;
-        width : 70%;
-    }
-}
-
 .img_container{
     position: absolute;
     top: 0%;

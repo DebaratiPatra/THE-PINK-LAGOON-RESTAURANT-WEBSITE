@@ -1,4 +1,3 @@
-// 
 // ===== MODAL HANDLING =====
 function openModal() {
   document.getElementById("bookingModal").style.display = "block";
@@ -35,52 +34,49 @@ function showPopup(message, color = "#4CAF50") {
   setTimeout(() => popup.remove(), 3000);
 }
 
-// ===== FETCH BOOKINGS ON LOAD =====
-document.addEventListener("DOMContentLoaded", () => {
-  const bookButtons = document.querySelectorAll(".button_act");
-  bookButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      selectedPlace = button.getAttribute("data-place");
-      openModal();
+// ===== UPDATE NAVBAR USER STATUS =====
+function updateUserStatusUI() {
+  const userContainer = document.getElementById("userContainer");
+  if (!userContainer) return;
+
+  const loggedInEmail = localStorage.getItem("loggedInUserEmail");
+  const loggedInUsername = localStorage.getItem("loggedInUsername");
+
+  if (loggedInEmail) {
+    userContainer.innerHTML = `
+    <span style="display:flex; align-items:center; gap:8px;">
+      <img src="images/profile-user.png" alt="profile" style="width:28px; height:28px; border-radius:50%;">
+      <span style="color:#000000; font-weight:300; margin-right:5rem; font-size:20px">
+        ${loggedInUsername || loggedInEmail}
+      </span>
+      <button id="logoutBtn" style="
+        padding:5px 12px; 
+        background:#ed68aa; 
+        color:white; 
+        border:none; 
+        border-radius:6px; 
+        cursor:pointer;
+        font-weight:500;
+      ">
+        Logout
+      </button>
+    </span>
+    `;
+
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      localStorage.removeItem("loggedInUserEmail");
+      localStorage.removeItem("loggedInUsername");
+      localStorage.removeItem("authToken");
+      window.location.reload();
     });
-  });
-
-  // ✅ Only call if bookingList exists (i.e. on orders.html)
-  if (document.getElementById("bookingList")) {
-    fetchBookings();
+  } else {
+    userContainer.innerHTML = `
+      <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
+        Login/Join
+      </a>
+    `;
   }
-
-  // ✅ Call badge update on all pages
-  updateBookingBadge();
-
-  // ✅ Update user status UI on page load
-  updateUserStatusUI();
-
-  // Add logout click event handler
-  const logoutLink = document.getElementById("logoutLink");
-  if (logoutLink) {
-    logoutLink.addEventListener("click", async (e) => {
-      e.preventDefault();
-      try {
-        const res = await fetch("http://localhost:5000/api/auth/logout", {
-          method: "POST",
-          credentials: "include",
-        });
-        if (res.ok) {
-          showPopup("Logged out successfully");
-          updateUserStatusUI();
-          // Optional: redirect after logout
-          // window.location.href = "/login.html";
-        } else {
-          showPopup("Logout failed", "#f44336");
-        }
-      } catch (err) {
-        console.error("Logout error:", err);
-        showPopup("Logout failed", "#f44336");
-      }
-    });
-  }
-});
+}
 
 // ===== TOGGLE HAMBURGER =====
 function toggleHamburger() {
@@ -88,10 +84,36 @@ function toggleHamburger() {
   menu.classList.toggle("show");
 }
 
-// ===== REMOVE LOCALSTORAGE ORDER COUNT DISPLAY (OPTIONAL) =====
-const bookingCount = document.querySelector("#bookingBadge");
-if (bookingCount) {
-  bookingCount.style.display = "none";
+// ===== BOOKING BUTTONS CONTROL BASED ON LOGIN =====
+function initBookButtons() {
+  const bookButtons = document.querySelectorAll(".button_act");
+  const loggedInEmail = localStorage.getItem("loggedInUserEmail");
+
+  bookButtons.forEach((button) => {
+    // Remove previous click listeners to avoid duplicates
+    button.replaceWith(button.cloneNode(true));
+  });
+
+  const updatedButtons = document.querySelectorAll(".button_act");
+
+  updatedButtons.forEach((button) => {
+    if (!loggedInEmail) {
+      button.disabled = true;
+      button.style.cursor = "not-allowed";
+      button.title = "Please login/register to book";
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        showPopup("⚠ Please login/register to book!", "#f44336");
+      });
+    } else {
+      button.disabled = false;
+      button.style.cursor = "pointer";
+      button.addEventListener("click", () => {
+        selectedPlace = button.getAttribute("data-place");
+        openModal();
+      });
+    }
+  });
 }
 
 // ===== BOOKING SUBMIT =====
@@ -122,19 +144,13 @@ if (button_modal) {
       });
 
       const data = await res.json();
-      console.log("Response from booking:", data);
 
       if (!res.ok) {
-        // This will catch max booking limit and other errors
         showPopup(data.message || "Error submitting booking.", "#f44336");
       } else {
-        // Successful booking
         showPopup(data.message || "✅ Thank you! Your booking is confirmed.");
         closeModal();
-
-        if (document.getElementById("bookingList")) {
-          fetchBookings(); // only on orders.html
-        }
+        if (document.getElementById("bookingList")) fetchBookings();
         updateBookingBadge();
       }
     } catch (err) {
@@ -144,13 +160,10 @@ if (button_modal) {
   };
 }
 
-// ===== FETCH BOOKINGS FROM BACKEND =====
+// ===== FETCH BOOKINGS =====
 function fetchBookings() {
   const bookingList = document.getElementById("bookingList");
-  if (!bookingList) {
-    console.warn("Element with ID 'bookingList' not found in DOM.");
-    return;
-  }
+  if (!bookingList) return;
 
   bookingList.innerHTML = "";
 
@@ -195,23 +208,19 @@ function fetchBookings() {
     });
 }
 
-// ===== EVENT DELEGATION FOR EDIT / DELETE =====
+// ===== EDIT / DELETE BOOKINGS =====
 document.addEventListener("click", async function (e) {
-  // DELETE
+  const orderId = e.target.getAttribute("data-id");
+
   if (e.target.classList.contains("bookingDivDeleteBtn")) {
-    const orderId = e.target.getAttribute("data-id");
     if (confirm("Are you sure you want to delete this booking?")) {
       try {
-        const res = await fetch(`http://localhost:5000/api/bookings/${orderId}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(`http://localhost:5000/api/bookings/${orderId}`, { method: "DELETE" });
         if (res.ok) {
           showPopup("Booking deleted.", "#2196F3");
           fetchBookings();
           updateBookingBadge();
-        } else {
-          showPopup("Delete failed.", "#f44336");
-        }
+        } else showPopup("Delete failed.", "#f44336");
       } catch (err) {
         console.error("Delete error:", err);
         showPopup("Delete failed due to server error.", "#f44336");
@@ -219,9 +228,7 @@ document.addEventListener("click", async function (e) {
     }
   }
 
-  // EDIT
   if (e.target.classList.contains("bookingDivEditBtn")) {
-    const orderId = e.target.getAttribute("data-id");
     const newName = prompt("Enter new name:");
     const newTime = prompt("Enter new time (HH:MM):");
 
@@ -235,9 +242,7 @@ document.addEventListener("click", async function (e) {
         if (res.ok) {
           showPopup("Booking updated.", "#2196F3");
           fetchBookings();
-        } else {
-          showPopup("Edit failed.", "#f44336");
-        }
+        } else showPopup("Edit failed.", "#f44336");
       } catch (err) {
         console.error("Edit error:", err);
         showPopup("Edit failed due to server error.", "#f44336");
@@ -267,11 +272,17 @@ function updateBookingBadge() {
         badge.style.marginLeft = "8px";
         badge.style.fontSize = "12px";
         badge.style.fontWeight = "bold";
-      } else {
-        badge.style.display = "none";
-      }
+      } else badge.style.display = "none";
     })
-    .catch((err) => {
-      console.error("Error fetching bookings for badge:", err);
-    });
+    .catch((err) => console.error("Error fetching bookings for badge:", err));
 }
+
+// ===== INIT ON PAGE LOAD =====
+document.addEventListener("DOMContentLoaded", () => {
+  updateUserStatusUI();
+  initBookButtons();
+
+  // Fetch bookings if orders.html
+  if (document.getElementById("bookingList")) fetchBookings();
+  updateBookingBadge();
+});
