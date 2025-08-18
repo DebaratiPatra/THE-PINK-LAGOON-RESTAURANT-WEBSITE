@@ -71,10 +71,13 @@ function updateUserStatusUI() {
     });
   } else {
     userContainer.innerHTML = `
-      <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
-        Login/Join
-      </a>
-    `;
+    <a href="login.html" id="loginLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
+      Login /
+    </a>
+    <a href="register.html" id="registerLink" style="text-decoration:none; font-weight:400; color:#ed68aa;">
+      Join
+    </a>
+  `;
   }
 }
 
